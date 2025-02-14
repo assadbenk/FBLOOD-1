@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 البحث عن متبرعي الدم ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switch">
+            <button onclick="switchLanguage()">🌐 تغيير اللغة</button>
+        </div>
+        <h2>🔍 البحث عن متبرعي الدم ❤️</h2>
+
+        <!-- بحث عن المتبرعين -->
+        <label for="blood-type">🩸 اختر فصيلة الدم:</label>
+        <select id="blood-type">
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+        </select>
+
+        <label for="city-search">🏙️ ابحث عن المدينة:</label>
+        <input type="text" id="city-search" placeholder="أدخل اسم المدينة">
+
+        <button onclick="searchDonors()">🔍 بحث</button>
+
+        <!-- نتائج البحث -->
+        <div id="results"></div>
+
+        <!-- تسجيل متبرع جديد -->
+        <h3>🤝 تسجيل كمتبرع</h3>
+        <label for="donor-name">👤 الاسم:</label>
+        <input type="text" id="donor-name" placeholder="أدخل اسمك">
+
+        <label for="donor-blood-type">🩸 فصيلة الدم:</label>
+        <select id="donor-blood-type">
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+        </select>
+
+        <label for="country">🌍 الدولة:</label>
+        <select id="country" onchange="loadStates()">
+            <option value="">اختر الدولة</option>
+            <option value="dz">🇩🇿 الجزائر</option>
+            <option value="eg">🇪🇬 مصر</option>
+            <option value="ma">🇲🇦 المغرب</option>
+            <option value="sa">🇸🇦 السعودية</option>
+        </select>
+
+        <label for="state">📍 الولاية:</label>
+        <select id="state" onchange="loadCities()" disabled>
+            <option value="">اختر الولاية</option>
+        </select>
+
+        <label for="city">🏙️ المدينة:</label>
+        <select id="city" disabled>
+            <option value="">اختر المدينة</option>
+        </select>
+
+        <label for="donor-contact">📞 معلومات الاتصال (رقم الهاتف):</label>
+        <input type="text" id="donor-contact" placeholder="أدخل رقم الهاتف">
+
+        <button onclick="registerDonor()">✅ تسجيل</button>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js"></script>
+
+    <!-- ملف JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
